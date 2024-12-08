@@ -37,8 +37,9 @@ export function TransactionList({ transactions }: TransactionListProps) {
                 ${Math.abs(transaction.amount).toFixed(2)}
               </TableCell>
             </TableRow>
-          )TableBody>
-        </Table>
-      </div>
-    );
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
 }
