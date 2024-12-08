@@ -34,7 +34,7 @@ export function TransactionList({ transactions }: TransactionListProps) {
                 {CATEGORIES.find(cat => cat.id === transaction.category)?.name}
               </TableCell>
               <TableCell className={`text-right ${transaction.amount >= 0 ? 'income' : 'expense'}`}>
-                ${Math.abs(transaction.amount).toFixed(2)}
+                ₦{Math.abs(transaction.amount).toFixed(2)}
               </TableCell>
             </TableRow>
           ))}

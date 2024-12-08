@@ -24,7 +24,7 @@ export function Summary({ transactions }: SummaryProps) {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-emerald-600">
-            ${income.toFixed(2)}
+            ₦{income.toFixed(2)}
           </div>
         </CardContent>
       </Card>
@@ -34,7 +34,7 @@ export function Summary({ transactions }: SummaryProps) {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-red-500">
-            ${Math.abs(expenses).toFixed(2)}
+            ₦{Math.abs(expenses).toFixed(2)}
           </div>
         </CardContent>
       </Card>
@@ -44,7 +44,7 @@ export function Summary({ transactions }: SummaryProps) {
         </CardHeader>
         <CardContent>
           <div className={`text-2xl font-bold ${balance >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-            ${balance.toFixed(2)}
+            ₦{balance.toFixed(2)}
           </div>
         </CardContent>
       </Card>
