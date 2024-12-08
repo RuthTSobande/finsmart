@@ -26,6 +26,24 @@ export default function Index() {
     });
   };
 
+  const handleDeleteTransaction = (id: string) => {
+    setTransactions(prev => prev.filter(t => t.id !== id));
+    toast({
+      title: "Transaction deleted",
+      description: "The transaction has been removed.",
+    });
+  };
+
+  const handleUpdateTransaction = (updatedTransaction: Transaction) => {
+    setTransactions(prev => 
+      prev.map(t => t.id === updatedTransaction.id ? updatedTransaction : t)
+    );
+    toast({
+      title: "Transaction updated",
+      description: "The transaction has been modified successfully.",
+    });
+  };
+
   return (
     <div className="container mx-auto py-8 space-y-8">
       <div className="flex justify-between items-center mb-8">
@@ -47,7 +65,11 @@ export default function Index() {
           <Charts transactions={transactions} />
           <div>
             <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
-            <TransactionList transactions={transactions} />
+            <TransactionList 
+              transactions={transactions}
+              onDelete={handleDeleteTransaction}
+              onUpdate={handleUpdateTransaction}
+            />
           </div>
         </div>
       </div>
