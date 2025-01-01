@@ -207,7 +207,7 @@ export default function Index() {
       <div className="grid gap-8 md:grid-cols-[350px,1fr]">
         <div>
           <h2 className="text-lg font-semibold mb-4">Add Transaction</h2>
-          <TransactionForm onSubmit={handleAddTransaction} />
+          <TransactionForm onSubmit={handleAddTransaction} userId={currentUser} />
         </div>
         <div className="space-y-8">
           <Charts transactions={transactions} />

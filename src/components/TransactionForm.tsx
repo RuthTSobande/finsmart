@@ -8,9 +8,10 @@ import { Transaction } from '@/types';
 
 interface TransactionFormProps {
   onSubmit: (transaction: Transaction) => void;
+  userId: string; // Add userId prop
 }
 
-export function TransactionForm({ onSubmit }: TransactionFormProps) {
+export function TransactionForm({ onSubmit, userId }: TransactionFormProps) {
   const [amount, setAmount] = useState('');
   const [type, setType] = useState<'income' | 'expense'>('expense');
   const [category, setCategory] = useState('');
@@ -27,6 +28,7 @@ export function TransactionForm({ onSubmit }: TransactionFormProps) {
       category,
       description,
       date: new Date().toISOString(),
+      userId // Add userId to the transaction
     };
 
     onSubmit(transaction);
