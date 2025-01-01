@@ -24,14 +24,17 @@ export function Login({ onLogin }: LoginProps) {
     onLogin(username.trim());
     toast({
       title: "Welcome!",
-      description: `Logged in as ${username}`,
+      description: `Successfully ${localStorage.getItem(username) ? 'logged in' : 'created new profile'} as ${username}`,
     });
   };
 
   return (
     <div className="flex min-h-[80vh] items-center justify-center">
       <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4 p-8 border rounded-lg shadow-sm">
-        <h1 className="text-2xl font-bold text-center mb-6">FinSmart Login</h1>
+        <h1 className="text-2xl font-bold text-center mb-6">FinSmart</h1>
+        <p className="text-center text-muted-foreground mb-6">
+          Enter a username to login or create a new expense profile
+        </p>
         <div className="space-y-2">
           <Input
             type="text"
@@ -41,7 +44,7 @@ export function Login({ onLogin }: LoginProps) {
           />
         </div>
         <Button type="submit" className="w-full">
-          Login
+          Login / Create Profile
         </Button>
       </form>
     </div>
